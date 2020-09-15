@@ -10,12 +10,20 @@ const router = new KoaRouter()
 app.use(router.routes())
    .use(router.allowedMethods())
  
+//请求首页数据
 const testData = require('./datas/index.json')
 router.get('/getIndexData',function(ctx,next){
 	// console.log("已到达test")
 	ctx.body = testData
 	
 })
+//请求分类页的数据
+const categoryDatas= require('./datas/categoryDatas.json');
+router.get('/getCategoryDatas',function(ctx,next){
+	ctx.body  = categoryDatas
+})
+
+
 
 
 // 3监听服务器启动
